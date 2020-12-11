@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
-project(Cassava)
+project(deepfake)
 
-list(APPEND CMAKE_PREFIX_PATH "/home/mnuppnau/cassava/external/libtorch")
-list(APPEND CMAKE_PREFIX_PATH "/home/mnuppnau/cassava/external/opencv-master/build")
+list(APPEND CMAKE_PREFIX_PATH "/home/mnuppnau/deepfake/external/libtorch")
+list(APPEND CMAKE_PREFIX_PATH "/home/mnuppnau/deepfake/external/opencv-master/build")
 
 find_package(OpenCV REQUIRED)
 find_package(Torch REQUIRED)
@@ -11,7 +11,7 @@ set(CMAKE_VERBOSE_MAKEFILE on)
 
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
-add_executable(cassava src/cassava/datasets/base_dataset.cpp)
-target_link_libraries(cassava "${TORCH_LIBRARIES}")
-target_link_libraries(cassava "${OpenCV_LIBS}")
-set_property(TARGET cassava PROPERTY CXX_STANDARD 14)
+add_executable(deepfake src/deepfake/datasets/base_dataset.cpp)
+target_link_libraries(deepfake "${TORCH_LIBRARIES}")
+target_link_libraries(deepfake "${OpenCV_LIBS}")
+set_property(TARGET deepfake PROPERTY CXX_STANDARD 14)
