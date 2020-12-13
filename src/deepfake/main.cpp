@@ -1,5 +1,5 @@
-#include </home/mnuppnau/deepfake/include/deepfake/extract_images.h>
 #include </home/mnuppnau/deepfake/include/deepfake/model.h>
+#include </home/mnuppnau/deepfake/src/deepfake/main.h>
 
 template<typename Dataloader>
 void train(torch::jit::script::Module net, torch::nn::Linear lin, Dataloader& data_loader, torch::optim::Optimizer& optimizer, size_t dataset_size) {
@@ -115,12 +115,10 @@ void test(torch::jit::script::Module network, torch::nn::Linear lin, Dataloader&
 
 int main(int argc, const char * argv[]) {
     // Set folder names for cat and dog images
-    std::string cats_name = "/Users/krshrimali/Documents/krshrimali-blogs/dataset/train/cat_test";
-    std::stringdogs_name = "/Users/krshrimali/Documents/krshrimali-blogs/dataset/train/dog_test";
+    std::string train_video_dir = "/mnt/data/train/dfdc_train_part_0/";
     
     std::vector<std::string> folders_name;
-    folders_name.push_back(cats_name);
-    folders_name.push_back(dogs_name);
+    folders_name.push_back(train_video_dir);
     
     // Get paths of images and labels as int from the folder paths
     std::pair<std::vector<std::string>, std::vector<int>> pair_images_labels = load_data_from_folder(folders_name);

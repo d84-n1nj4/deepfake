@@ -11,7 +11,10 @@ set(CMAKE_VERBOSE_MAKEFILE on)
 
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
-add_executable(deepfake src/deepfake/datasets/base_dataset.cpp)
+add_executable(deepfake src/deepfake/main.cpp src/deepfake/main.h src/deepfake/datasets/extract_images.cpp include/deepfake/extract_images.h)
+
 target_link_libraries(deepfake "${TORCH_LIBRARIES}")
 target_link_libraries(deepfake "${OpenCV_LIBS}")
+
+
 set_property(TARGET deepfake PROPERTY CXX_STANDARD 14)
